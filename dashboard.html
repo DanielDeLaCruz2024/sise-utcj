@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISE - Panel de Estudiante</title>
+  <link rel="stylesheet" href="sise_utcj.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+  <div class="header-top">SISTEMA INTEGRAL DE SERVICIOS ESTUDIANTILES</div>
+
+  <nav class="navbar">
+    <a href="" class="active">Inicio</a>
+    <a href="#" class="cerrar-btn" id="btn-cerrar">Cerrar Sesión</a>
+  </nav>
+
+  <div class="main-wrapper">
+    <div class="menu-tab">
+      <span class="hamburger">&#9776;</span> Menú Principal
+    </div>
+
+    <div class="dashboard-card">
+
+      <!-- STUDENT INFO -->
+      <div class="student-info">
+        <div class="student-left">
+          <p class="student-name" id="student-name">Cargando...</p>
+          <p id="student-email"></p>
+          <p>Tecnologías de la Información, área Desarrollo de Software Multiplataforma</p>
+          <p>Enero – Abril 2025 / TDM61</p>
+          <p>Estatus actual: <strong class="status-egresado">EGRESADO</strong></p>
+        </div>
+        <div class="student-right">
+          <button class="btn-2fa" id="btn-2fa">Configurar 2FA</button>
+        </div>
+      </div>
+
+      <!-- WIDGETS ROW: CLIMA + GIF -->
+      <div class="widgets-row">
+
+        <!-- CLIMA -->
+        <div class="widget-card" id="widget-clima">
+          <div class="widget-header">
+            <span class="widget-icon">&#9729;</span>
+            <span class="widget-title">Clima actual</span>
+          </div>
+          <div class="clima-body" id="clima-body">
+            <p class="clima-loading">Obteniendo ubicación...</p>
+          </div>
+        </div>
+
+        <!-- GIF MOTIVACIONAL -->
+        <div class="widget-card widget-gif">
+          <div class="widget-header">
+            <span class="widget-icon">&#127881;</span>
+            <span class="widget-title">GIF del día</span>
+            <button class="btn-refresh-gif" id="btn-refresh-gif" title="Nuevo GIF">&#8635;</button>
+          </div>
+          <div class="gif-body" id="gif-body">
+            <p class="clima-loading">Cargando GIF...</p>
+          </div>
+        </div>
+
+      </div><!-- /widgets-row -->
+
+      <!-- CALIFICACIONES -->
+      <div class="grades-container" style="margin-top: 24px;">
+        <h3
+          style="color: #4a7c3f; border-bottom: 2px solid #4a7c3f; padding-bottom: 5px; margin-bottom: 15px; font-size: 16px;">
+          Calificaciones del Cuatrimestre
+        </h3>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; background: white; border: 1px solid #ddd;">
+            <thead>
+              <tr style="background: #f4f4f4; text-align: left;">
+                <th style="padding: 12px; border: 1px solid #ddd; font-size: 13px;">Asignatura</th>
+                <th style="padding: 12px; border: 1px solid #ddd; font-size: 13px;">Docente</th>
+                <th style="padding: 12px; border: 1px solid #ddd; text-align: center; font-size: 13px;">Calificación
+                </th>
+              </tr>
+            </thead>
+            <tbody id="grades-body">
+              <tr>
+                <td colspan="3" style="text-align: center; padding: 20px; color: #666;">Cargando tus notas desde el
+                  sistema...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- NASA -->
+      <div class="news-section" style="margin-top: 24px;">
+        <h3 class="news-heading">
+          <span>🪐</span> Imagen del espacio (NASA)
+        </h3>
+        <div id="nasa-container" class="news-list">
+          <p class="clima-loading">Cargando imagen...</p>
+        </div>
+      </div>
+
+      <!-- NOTIFICACIONES -->
+      <div class="notifications-section" style="margin-top: 24px;">
+        <div class="notif-tabs">
+          <button class="notif-tab active" onclick="showTab('nuevas')">Nuevas</button>
+          <button class="notif-tab" onclick="showTab('leidas')">Leídas</button>
+        </div>
+        <div id="panel-nuevas" class="notif-panel active">
+          <div class="notif-item">
+            <p class="notif-title">Encuesta de satisfacción 2024</p>
+            <p class="notif-date">10/Oct/2024</p>
+            <button class="btn-delete">×</button>
+          </div>
+        </div>
+        <div id="panel-leidas" class="notif-panel">
+          <p style="padding:20px; color:#888;">No tienes notificaciones leídas.</p>
+        </div>
+      </div>
+
+    </div><!-- /dashboard-card -->
+  </div><!-- /main-wrapper -->
+
+  <!-- MODAL 2FA -->
+  <div class="modal-overlay" id="modal-2fa">
+    <div class="modal-box modal-2fa-box">
+      <button class="modal-close" id="close-2fa">✕</button>
+      <div class="modal-2fa-header">
+        <div class="shield-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <div>
+          <h3>Autenticación de Dos Pasos</h3>
+          <p>Confirma tu identidad para continuar</p>
+        </div>
+      </div>
+      <div class="modal-2fa-body">
+        <div class="twofa-info-box">
+          <p>Se ha enviado un código de <strong>6 dígitos</strong> a tu correo institucional.</p>
+        </div>
+        <div class="otp-row twofa-otp">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+        </div>
+        <button class="btn-continuar" style="width:100%;" id="btn-confirm-2fa">Confirmar Código</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

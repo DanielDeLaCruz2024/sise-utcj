@@ -1,0 +1,508 @@
+/* ============================================================
+   SISE UTCJ - Dashboard / Panel del Estudiante
+   ============================================================ */
+
+/* Navbar — cerrar sesión en naranja */
+.navbar a.cerrar-btn {
+  color: #e67e22 !important;
+  font-weight: bold;
+}
+.navbar a.cerrar-btn:hover {
+  background-color: #e67e22;
+  color: white !important;
+}
+
+/* ===== MENU TAB ===== */
+.menu-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #888;
+  color: white;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+}
+.hamburger { font-size: 15px; }
+
+/* ===== DASHBOARD CARD ===== */
+.dashboard-card {
+  border: 1px solid #ccc;
+  padding: 20px 24px;
+  background: white;
+}
+
+/* ===== STUDENT INFO ===== */
+.student-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+.student-left p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #333;
+}
+.student-name {
+  font-weight: bold;
+  font-size: 14px !important;
+}
+.status-egresado { color: #4a7c3f; }
+.student-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.student-links a {
+  font-size: 11px;
+  color: #4a7c3f;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.student-links a:hover { text-decoration: underline; }
+
+/* ===== WIDGETS ROW ===== */
+.widgets-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.widget-card {
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #4a7c3f;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.widget-icon { font-size: 16px; }
+.widget-title { flex: 1; }
+
+/* ===== CLIMA ===== */
+.clima-body {
+  padding: 14px 16px;
+}
+.clima-loading {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  padding: 10px 0;
+}
+.clima-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.clima-temp {
+  font-size: 36px;
+  font-weight: bold;
+  color: #4a7c3f;
+  line-height: 1;
+}
+.clima-details {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+.clima-city {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2px;
+}
+.clima-desc {
+  font-size: 12px;
+  color: #777;
+  text-transform: capitalize;
+  margin-top: 4px;
+}
+
+/* ===== GIF ===== */
+.widget-gif { max-width: 340px; }
+
+.btn-refresh-gif {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  color: white;
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.btn-refresh-gif:hover { background: rgba(255,255,255,0.2); }
+
+.gif-body {
+  padding: 10px;
+  text-align: center;
+}
+.gif-body img {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+  max-height: 180px;
+  object-fit: cover;
+}
+.gif-title {
+  font-size: 11px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* ===== NOTICIAS ===== */
+.news-heading {
+  color: #4a7c3f;
+  border-bottom: 2px solid #4a7c3f;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item:hover { background: #f8fdf7; }
+
+.news-img {
+  width: 70px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: #eee;
+}
+.news-img-placeholder {
+  width: 70px;
+  height: 52px;
+  background: #e8f5e3;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.news-content { flex: 1; min-width: 0; }
+
+.news-source {
+  font-size: 10px;
+  font-weight: bold;
+  color: #4a7c3f;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.news-headline {
+  font-size: 13px;
+  color: #222;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.news-desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-date {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* ===== NOTIFICATION TABS ===== */
+.notif-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 0;
+}
+.notif-tab {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.15s;
+  letter-spacing: 0.3px;
+}
+.notif-tab:first-child { border-right: none; }
+.notif-tab.active {
+  background: white;
+  border-bottom: 2px solid #4a7c3f;
+  color: #222;
+}
+.notif-tab:hover:not(.active) { background: #f5f5f5; }
+
+/* ===== NOTIFICATION PANELS ===== */
+.notif-panel {
+  border: 1px solid #ccc;
+  border-top: none;
+  min-height: 80px;
+  margin-bottom: 18px;
+}
+.notif-panel.hidden { display: none; }
+
+.notif-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 8px;
+  color: #888;
+}
+.empty-icon {
+  font-size: 28px;
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+.notif-empty p {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== NOTIFICATION ITEMS ===== */
+.notif-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.15s;
+}
+.notif-item:last-child { border-bottom: none; }
+.notif-item:hover { background: #fafafa; }
+
+.notif-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: #ddd;
+}
+.notif-icon.calendar::after { content: '📅'; }
+.notif-icon.doc::after      { content: '📋'; }
+.notif-icon.lock::after     { content: '🔒'; }
+
+.notif-text {
+  flex: 1;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.5;
+}
+.notif-dismiss {
+  background: none;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
+  color: #4a7c3f;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+.notif-dismiss:hover {
+  background: #4a7c3f;
+  color: white;
+  border-color: #4a7c3f;
+}
+
+.notif-title {
+  flex: 1;
+  font-size: 13px;
+  color: #333;
+}
+.notif-date {
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+}
+.btn-delete {
+  background: none;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  color: #c0392b;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s;
+}
+.btn-delete:hover { background: #fdecea; }
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+.btn-worcket {
+  background-color: #2e8b72;
+  color: white;
+  border: none;
+  padding: 10px 32px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-worcket:hover { background-color: #236b58; }
+
+.btn-2fa {
+  background-color: #3a6230;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-2fa:hover { background-color: #2d4e26; }
+
+/* ============================================================
+   MODAL 2FA
+   ============================================================ */
+.modal-2fa-box { width: 380px; }
+
+.modal-2fa-header {
+  background: #4a7c3f;
+  color: white;
+  padding: 16px 50px 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.shield-icon { flex-shrink: 0; }
+.modal-2fa-header h3 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.modal-2fa-header p {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.modal-2fa-body { padding: 20px 22px 24px; }
+
+.twofa-info-box {
+  background: #eaf4e8;
+  border: 1px solid #a8d5a0;
+  border-radius: 6px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+.twofa-info-box ul {
+  margin: 8px 0 8px 0;
+  padding-left: 4px;
+  list-style: none;
+}
+.twofa-info-box ul li { margin-bottom: 4px; }
+.twofa-info-box ul li span {
+  font-weight: bold;
+  color: #3a6230;
+}
+.twofa-note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+}
+.twofa-otp { margin-bottom: 12px; }
+.btn-2fa-confirm { background-color: #4a7c3f !important; }
+.btn-2fa-confirm:hover { background-color: #3a6230 !important; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .widgets-row { flex-direction: column; }
+  .widget-gif { max-width: 100%; }
+  .news-img, .news-img-placeholder { width: 54px; height: 42px; }
+}
+
+/* ===== NASA ===== */
+#nasa-container img {
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+#nasa-container h4 {
+  font-size: 14px;
+  margin: 8px 0 4px;
+  color: #2c3e50;
+}
+
+#nasa-container p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}

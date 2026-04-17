@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Integral de Servicios Estudiantiles</title>
+  <link rel="stylesheet" href="sise_utcj.css">
+</head>
+<body>
+  <div class="header-top">SISTEMA INTEGRAL DE SERVICIOS ESTUDIANTILES</div>
+ 
+  <nav class="navbar">
+    <a href="#" class="active">Inicio</a>
+    <a href="register.html" class="login-btn" style="background:#777;">Registrarse</a>
+    <a href="#" class="login-btn">Iniciar Sesión</a>
+  </nav>
+ 
+  <div class="main-wrapper">
+    <div class="top-section">
+      <div class="left-col">
+        <div class="logo-area">
+          <div class="logo-placeholder">Coloca aquí logo_utcj.png</div>
+        </div>
+        <div class="side-buttons">
+          <a href="#" class="side-btn btn-green">Correo Institucional</a>
+          <a href="#" class="side-btn btn-green">Moodle</a>
+          <a href="#" class="side-btn btn-green">Buzón de Quejas</a>
+          <a href="#" class="side-btn btn-gray">Calendario Escolar</a>
+          <a href="#" class="side-btn btn-gray">Entrega de Títulos</a>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="login-box">
+          <div class="login-header">DATOS DE ACCESO</div>
+          <div class="login-form">
+            <div class="form-row">
+              <label>Usuario:</label>
+              <div class="user-input-wrapper">
+                <input type="text" id="login-user" placeholder="al0000000">
+                <span>@utcj.edu.mx</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Contraseña:</label>
+              <input type="password" id="login-pass" placeholder="">
+            </div>
+            <div id="login-error" style="color:#c0392b;font-size:12px;text-align:center;min-height:18px;"></div>
+            <div class="btn-row">
+              <button class="btn-login" id="btn-login">INICIAR SESIÓN</button>
+              <a href="#" class="btn-forgot" id="btn-forgot">Olvidé mi contraseña</a>
+            </div>
+          </div>
+        </div>
+        <div class="help-box">
+          Si tienes problemas para iniciar sesión, envía una foto de tu
+          credencial escolar vigente al correo soporte_correo@utcj.edu.mx
+        </div>
+        <div class="app-banner">
+          <div class="app-logo-area">
+            <div class="app-icon-placeholder">SISE</div>
+            <div class="app-title">SISE ALUMNOS UTCJ</div>
+          </div>
+          <a href="#" class="playstore-btn">PLAYSTORE</a>
+        </div>
+      </div>
+    </div>
+    <div class="banners-section">
+      <div class="banners-row">
+        <div class="banner-item">
+          <div class="banner-placeholder">banner_convenio.png</div>
+        </div>
+        <div class="banner-item">
+          <div class="banner-placeholder dark">banner_subes.png</div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="footer">Universidad Tecnologica de Ciudad Juarez © 03-2020-131211374200-01</div>
+ 
+  <!-- MODAL OLVIDÉ CONTRASEÑA -->
+  <div class="modal-overlay" id="modal-forgot">
+    <div class="modal-box">
+      <button class="modal-close" id="close-forgot">✕</button>
+      <div class="modal-header">¿Cómo te gustaría restablecer tu contraseña?</div>
+      <div class="modal-body">
+        <div class="recover-option" id="opt-email">
+          <div class="radio-icon"></div>
+          <div class="option-text">Enviar código al correo electrónico</div>
+        </div>
+        <div class="recover-option selected" id="opt-contact">
+          <div class="radio-icon"></div>
+          <div class="option-text">
+            Enviar código al numero registrado.
+            <span class="contact-num">+** *** *****68</span>
+          </div>
+        </div>
+        <div class="code-info-box">
+          Tu código de verificación te permitirá restablecer tu contraseña.
+        </div>
+        <button class="btn-continuar" id="btn-continuar">Continuar</button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- MODAL VERIFICACIÓN -->
+  <div class="modal-overlay" id="modal-verify">
+    <div class="modal-box">
+      <button class="modal-close" id="close-verify">✕</button>
+      <div class="modal-header">
+        <h3>Ingresa El Código de Verificación Enviado a Tu Correo</h3>
+      </div>
+      <div class="modal-body">
+        <p class="verify-email"></p>
+        <div class="otp-row">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric">
+        </div>
+        <p class="resend-text"><a id="btn-resend">Reenvía el Código</a></p>
+        <button class="btn-verificar" id="btn-verificar">Verificar</button>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Firebase SDK -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="sise_utcj.js"></script>
+</body>
+</html>
